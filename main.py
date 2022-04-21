@@ -29,7 +29,7 @@ def drow_the_lines(img, lines):
     return img
 
 '''Piplene to process the given image
-1-convert ito gray scale---2) Use cv2.canny 3) use Region of '''
+1-convert ito gray scale---2) Use cv2.canny 3) use Region of intrest, and then cv2.HoughlinesP'''
 def process(image):
     
     height = image.shape[0]
@@ -45,7 +45,7 @@ def process(image):
     cropped_image = region_of_interest(canny_image,
                     np.array([region_of_interest_vertices], np.int32))
 
-    lines = cv2.HoughLinesP(cropped_image, rho=6, theta=np.pi/60, threshold=160, lines=np.array([]), minLineLength=40, maxLineGap=25)
+    lines = cv2.HoughLinesP(cropped_image, rho=6, theta=np.pi/60, threshold=160, lines=np.array([]), minLineLength=40, maxLineGap=50)
     image_lines = drow_the_lines(image, lines)
     return image_lines
 
@@ -61,7 +61,7 @@ def process(image):
 
 
 
-vid_path = r'resources\test_videos\solidYellowLeft.mp4'
+vid_path = r'resources\test_videos\solidWhiteRight.mp4'
 cap = cv2.VideoCapture(vid_path)
 frameTime = 10
 while(cap.isOpened()):
