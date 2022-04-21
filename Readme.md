@@ -7,7 +7,7 @@
 
 Our Project is about lane-recognition as one part of autonomous driving. We used some example pictures and videos for this.
 First we greyscaled the original image, then we used the `Canny-method` for edge detection and applied mask and cropped the region with the lanes to detect.
-After that we used HoughLines to the render points of the lines and used those lines as a mask on the original image.
+After that we used HoughLines to the render points of the lines and used those ponits to create lines as a mask on the original image.
 
 ### 📦 *Installation*
 
