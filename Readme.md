@@ -5,7 +5,9 @@
 [![NumPy 1.22.3](https://img.shields.io/badge/NumPy-1.22.3-green.svg?longCache=true&style=flat-square)](https://numpy.org/doc/stable/)
 [![Matplotlib 3.5.1](https://img.shields.io/badge/Matplotlib-3.5.1-blue.svg?longCache=true&style=flat-square)](https://matplotlib.org/stable/)
 
-### explanation
+Our Project is about lane-recognition as one part of autonomous driving. We used some example pictures and videos for this.
+First we greyscaled the original image, then we used the `Canny-Kernel` for edge detection and applied mask and cropped the region with the lanes to detect.
+After that we used HoughLines to the render points of the lines and used those lines as a mask on the original image.
 
 ### 📦 *Installation*
 
@@ -23,7 +25,10 @@ Initially we have to import the libraries
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 ```
+
+The
 ![c2503606-d5c4-45af-81d7-a4cf89254236](https://user-images.githubusercontent.com/71933145/164476465-4c77232c-a209-48e2-95b8-b1998af88605.png)
 ![d795852e-f969-43b9-8898-b1e2f000f9e0](https://user-images.githubusercontent.com/71933145/164474630-db003b5c-44a1-4e1b-8211-983865427fbc.png)
 ![0667ef48-0d08-40be-a3e5-f96f2fcab647](https://user-images.githubusercontent.com/71933145/164474807-89e4fdcd-ba41-4fc6-b2eb-82c183459b41.png)
