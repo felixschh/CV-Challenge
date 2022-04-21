@@ -1,6 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 '''Since we are considering only one lane, we need to consider that one region
 with our required lane. '''
@@ -22,12 +23,13 @@ def drow_the_lines(img, lines):
 
     for line in lines:
         for x1, y1, x2, y2 in line:
-            cv2.line(blank_image, (x1,y1), (x2,y2), (0, 255, 0), thickness=10)
+            cv2.line(blank_image, (x1,y1), (x2,y2), (255,0,255), thickness=12)
 
     img = cv2.addWeighted(img, 0.8, blank_image, 0.2, 0.0)
     return img
 
-'''Piplene to process the given image'''
+'''Piplene to process the given image
+1-convert ito gray scale---2) Use cv2.canny 3) use Region of '''
 def process(image):
     
     height = image.shape[0]
@@ -39,7 +41,7 @@ def process(image):
         (width, height)
     ]
     gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-    canny_image = cv2.Canny(gray_image, 100,200)
+    canny_image = cv2.Canny(gray_image, 100,200) # lower threshold-100, upper threshold-200
     cropped_image = region_of_interest(canny_image,
                     np.array([region_of_interest_vertices], np.int32))
 
@@ -54,15 +56,19 @@ def process(image):
 # cv2.imshow('lane1',image_lines)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
+# ui = input('Please enter the vedio with extension:')
+# vid_path = os.path.join(os.path.dirname(__file__), 'resources/test_vedios/', f'{ui}')
 
-cap = cv2.VideoCapture(r'resources\test_videos\solidYellowLeft.mp4')
 
+
+vid_path = r'resources\test_videos\solidYellowLeft.mp4'
+cap = cv2.VideoCapture(vid_path)
+frameTime = 10
 while(cap.isOpened()):
     ret, frame = cap.read()
     frame = process(frame)
     cv2.imshow('trail',frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(frameTime) & 0xFF == ord('q'):
         break
-
 cap.release()
 cv2.destroyAllWindows()
