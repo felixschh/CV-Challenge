@@ -27,12 +27,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 ```
-
-The Original Image
+### *Steps involved*
 ![c2503606-d5c4-45af-81d7-a4cf89254236](https://user-images.githubusercontent.com/71933145/164476465-4c77232c-a209-48e2-95b8-b1998af88605.png)
-Grayscale image
 ![d795852e-f969-43b9-8898-b1e2f000f9e0](https://user-images.githubusercontent.com/71933145/164474630-db003b5c-44a1-4e1b-8211-983865427fbc.png)
-After Canny Kernel
 ![0667ef48-0d08-40be-a3e5-f96f2fcab647](https://user-images.githubusercontent.com/71933145/164474807-89e4fdcd-ba41-4fc6-b2eb-82c183459b41.png)
 ![8a2e8e70-1a49-4ef7-bde0-11ac743f705e](https://user-images.githubusercontent.com/71933145/164474985-4ef6c9d7-adc7-44c8-bb85-c4f8efe9e883.png)
 ![7b886a99-d789-4ea7-8cbb-c13f796ee976](https://user-images.githubusercontent.com/71933145/164476219-7f290229-0ab5-4bae-bc3c-2f196a6493d1.png)
